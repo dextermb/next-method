@@ -3,4 +3,5 @@
 
 npm run lint
 npm run make
+npm run test
 git add dist

@@ -10,11 +10,9 @@ module.exports = {
 
     if (Array.isArray(fn)) {
       this._handlers[key] = [].concat(tmp, fn)
-
-      return
+    } else {
+      this._handlers[key].push(fn)
     }
-
-    this._handlers[key].push(fn)
 
     return this
   },
@@ -39,7 +37,7 @@ module.exports = {
   delete: function (fn) {
     return this._add('delete', fn)
   },
-  end: function () {
+  end: function (fn) {
     return (req, res) => {
       const method = req.method.toLowerCase()
 
@@ -51,13 +49,17 @@ module.exports = {
 
         // Run through all handlers
         for (let i = 0; i < handlers.length; i++) {
-          const fn = handlers[i]
+          const handler = handlers[i]
 
-          if (typeof fn === 'function') {
-            if (fn(req, res, next) !== this._CONTINUE) {
+          if (typeof handler === 'function') {
+            if (handler(req, res, next) !== this._CONTINUE) {
               break
             }
           }
+        }
+
+        if (typeof fn === 'function') {
+          fn()
         }
 
         return

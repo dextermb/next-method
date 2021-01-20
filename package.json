@@ -9,11 +9,15 @@
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
+    "test": "jest",
     "lint": "npx standard",
     "fix": "npx standard --fix",
     "make": "npx babel src -d dist"
   },
   "standard": {
+    "env": [
+      "jest"
+    ],
     "ignore": [
       "dist/**"
     ]
@@ -25,6 +29,7 @@
     "@babel/preset-env": "^7.12.11",
     "babel-preset-minify": "^0.5.1",
     "husky": "^5.0.6",
+    "jest": "^26.6.3",
     "pinst": "^2.1.1",
     "standard": "^16.0.3"
   }
