@@ -76,4 +76,6 @@ module.exports = function (req, res) {
 
     throw err
   }
+
+  return this
 }
