@@ -1,8 +1,36 @@
 {
   "name": "next-method",
-  "version": "0.0.0",
-  "main": "index.js",
+  "version": "1.0.0",
+  "main": "dist/index.js",
   "repository": "git@github.com:dextermb/next-method.git",
   "author": "Dexter Marks-Barber <dexter@marks-barber.co.uk>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "husky install",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable",
+    "test": "jest",
+    "lint": "npx standard",
+    "fix": "npx standard --fix",
+    "make": "npx babel src -d dist"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "ignore": [
+      "dist/**"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-preset-minify": "^0.5.1",
+    "husky": "^5.0.6",
+    "jest": "^26.6.3",
+    "pinst": "^2.1.1",
+    "standard": "^16.0.3"
+  }
 }
