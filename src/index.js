@@ -57,11 +57,15 @@ module.exports = function (req, res) {
 
       // Run through all handlers
       for (let i = 0; i < handlers.length; i++) {
-        const out = await handlers[i](req, res)
+        const fn = handlers[i]
 
-        // Exit early if a response is returned
-        if (isResponse(out)) {
-          return
+        if (typeof fn === 'function') {
+          const out = await fn(req, res)
+
+          // Exit early if a response is returned
+          if (isResponse(out)) {
+            return
+          }
         }
       }
 
