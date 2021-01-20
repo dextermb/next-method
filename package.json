@@ -1,7 +1,7 @@
 {
   "name": "next-method",
   "version": "1.0.0-canary",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": "git@github.com:dextermb/next-method.git",
   "author": "Dexter Marks-Barber <dexter@marks-barber.co.uk>",
   "license": "MIT",
