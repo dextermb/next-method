@@ -2,7 +2,6 @@ const http = require('http')
 
 const isResponse = v => v instanceof http.ServerResponse
 
-// m(req, res).use(fn).post(fn).end()
 module.exports = function (req, res) {
   this._handlers = {}
 
@@ -54,36 +53,27 @@ module.exports = function (req, res) {
     // Check that handlers are set for method
     if (Array.isArray(this._handlers[method])) {
       const middleware = this._handlers['*']
-
-      // Run through all middleware
-      if (Array.isArray(middleware)) {
-        for (let i = 0; i < middleware.length; i++) {
-          const out = await middleware[i](req, res)
-
-          // Exit early if a response is returned
-          if (isResponse(out)) {
-            return
-          }
-        }
-      }
-
-      const handlers = this._handlers[method]
+      const handlers = [].concat(middleware, this._handlers[method])
 
       // Run through all handlers
-      if (Array.isArray(handlers)) {
-        for (let i = 0; i < handlers.length; i++) {
-          const out = await handlers[i](req, res)
+      for (let i = 0; i < handlers.length; i++) {
+        const out = await handlers[i](req, res)
 
-          // Exit early if a response is returned
-          if (isResponse(out)) {
-            return
-          }
+        // Exit early if a response is returned
+        if (isResponse(out)) {
+          return
         }
       }
 
       return
     }
 
-    throw Error(`Missing handlers for '${method}' method`)
+    const err = Error(`Missing handlers for '${method}' method`)
+
+    err.method = method
+    err.req = req
+    err.res = res
+
+    throw err
   }
 }
