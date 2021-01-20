@@ -13,7 +13,7 @@
     "fix": "npx standard --fix"
   },
   "standard": {
-    "exclude": [
+    "ignore": [
       "dist/**"
     ]
   },
