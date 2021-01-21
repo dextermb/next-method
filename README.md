@@ -23,7 +23,7 @@ yarn add next-method
 
 ## Usage
 
-`next-method` is designed to be using within [Next][next]'s [API routes][next-api]. After creating yourself an API endpoint you can then start working with it.
+`next-method` is designed to be used within [Next][next]'s [API routes][next-api]. After creating yourself an API endpoint you can then start working with it.
 
 ```js
 const m = require('next-method')
