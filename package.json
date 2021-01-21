@@ -2,7 +2,8 @@
   "name": "next-method",
   "version": "1.0.0",
   "main": "dist/index.js",
-  "repository": "git@github.com:dextermb/next-method.git",
+  "repository": "dextermb/next-method",
+  "bugs": "https://github.com/dextermb/next-method/issues",
   "author": "Dexter Marks-Barber <dexter@marks-barber.co.uk>",
   "license": "MIT",
   "scripts": {
