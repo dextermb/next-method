@@ -1,6 +1,6 @@
 {
   "name": "next-method",
-  "version": "1.0.0",
+  "version": "1.0.1-canary",
   "main": "dist/index.js",
   "repository": "dextermb/next-method",
   "bugs": "https://github.com/dextermb/next-method/issues",
