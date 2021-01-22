@@ -1,5 +1,8 @@
 # 🕵🏻‍♂️ Next Method
 
+<img alt="" src="https://badgen.net/bundlephobia/minzip/next-method">
+<br />
+
 `next-method`'s goal is to make it easier to interact with [Next][next]'s [API routes][next-api] by providing a wrapper around the [request method][request-method]. A simplistic, focused, and minimal interface.
 
 ## Contents
@@ -23,7 +26,7 @@ yarn add next-method
 
 ## Usage
 
-`next-method` is designed to be using within [Next][next]'s [API routes][next-api]. After creating yourself an API endpoint you can then start working with it.
+`next-method` is designed to be used within [Next][next]'s [API routes][next-api]. After creating yourself an API endpoint you can then start working with it.
 
 ```js
 const m = require('next-method')
